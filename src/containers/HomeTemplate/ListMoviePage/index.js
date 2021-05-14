@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import MovieItem from "components/MovieItem";
-import Loader from "components/Loader";
+import Loader from "./../../../components/Loader";
 import { actFetchListMovie } from "./modules/action";
 import { connect } from "react-redux";
 
@@ -21,6 +21,7 @@ class ListMoviePage extends Component {
 
   renderListMovive = () => {
     const { data, isLoading } = this.props;
+    // if(isLoading) return <Loader />;
 
     return (
       (isLoading && <Loader />) ||
@@ -34,9 +35,9 @@ class ListMoviePage extends Component {
   render() {
     return (
       <div className="container">
-        <h1>ListMoviePage</h1>
-
-        <div className="row">{this.renderListMovive()}</div>
+        <div className="row justify-content-between">
+          {this.renderListMovive()}
+        </div>
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { actFetchDetailMovie } from "./modules/action";
 import { connect } from "react-redux";
-import Loader from "./../../../components/Loader";
+import Loader from "../../../components/Loader";
 
 class DetailMoviePage extends Component {
   componentDidMount() {

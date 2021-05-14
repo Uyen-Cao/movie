@@ -1,36 +1,36 @@
 import * as ActionType from "./constants";
 import axios from "axios";
 
-export const actFetchDetailMovie = (id) => {
+export const fetchDetailMovie = (id) => {
   return (dispatch) => {
-    dispatch(actDetailMoviveRequest());
+    dispatch(actDetailMovieRequest());
     axios({
       url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${id}`,
       method: "GET",
     })
       .then((result) => {
-        dispatch(actDetailMoviveSuccess(result.data));
+        dispatch(actDetailMovieSuccess(result.data));
       })
       .catch((error) => {
-        dispatch(actDetailMoviveFailed(error));
+        dispatch(actDetailMovieFailed(error));
       });
   };
 };
 
-const actDetailMoviveRequest = () => {
+const actDetailMovieRequest = () => {
   return {
     type: ActionType.DETAIL_MOVIE_REQUEST,
   };
 };
 
-const actDetailMoviveSuccess = (data) => {
+const actDetailMovieSuccess = (data) => {
   return {
     type: ActionType.DETAIL_MOVIE_SUCCESS,
     payload: data,
   };
 };
 
-const actDetailMoviveFailed = (error) => {
+const actDetailMovieFailed = (error) => {
   return {
     type: ActionType.DETAIL_MOVIE_FAILED,
     payload: error,

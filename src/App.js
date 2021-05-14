@@ -6,7 +6,9 @@ import PageNotFound from "./containers/PageNotFound";
 import { routesHome, routesAdmin } from "./routes";
 import HomeTemplate from "./containers/HomeTemplate";
 import AdminTemplate from "./containers/AdminTemplate";
-import AuthPage from "./containers/AdminTemplate/AuthPage";
+// import AuthPage from "./containers/AdminTemplate/AuthPage";
+import AuthPage2 from "./containers/AdminTemplate/AuthPage2";
+import LoginPage from "containers/HomeTemplate/LoginPage";
 
 function App() {
   const renderRoutesHome = (routes) => {
@@ -53,7 +55,10 @@ function App() {
         {/* Trang list movie - localhost:3000/list-movie */}
         {/* <Route path="/list-movie" component={ListMovie} /> */}
 
-        <Route path="/auth" component={AuthPage} />
+        {/* <Route path="/auth" component={AuthPage} /> */}
+        <Route path="/auth2" component={AuthPage2} />
+        <Route path="/log-in" component={LoginPage} />
+
         {/* Trang PageNotFound */}
         <Route path="" component={PageNotFound} />
       </Switch>

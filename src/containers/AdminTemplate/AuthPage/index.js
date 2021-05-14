@@ -22,10 +22,6 @@ function AuthPage(props) {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    /**
-     * Goi action call api - truyền state vô gửi lên BE
-     */
-    // props.fetchLogin(state);
     dispatch(fetchLoginAuth(state, props.history));
   };
 

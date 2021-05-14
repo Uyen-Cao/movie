@@ -1,13 +1,13 @@
 import HomePage from "./../containers/HomeTemplate/HomePage";
 import AboutPage from "../containers/HomeTemplate/AboutPage";
 import ListMoviePage from "../containers/HomeTemplate/ListMoviePage";
-import DetailMoviePage from "../containers/HomeTemplate/DetailMoviePage";
+// import DetailMoviePage from "../containers/HomeTemplate/DetailMoviePage";
 import HocPage from "../containers/HomeTemplate/HocPage";
 import HooksPage from "../containers/HomeTemplate/HooksPage";
 import Dashboard from "../containers/AdminTemplate/DashboardPage";
-import AddUserPage from "../containers/AdminTemplate/AddUserPage";
-import MaterialPage from "../containers/HomeTemplate/MaterialPage";
-import StyledCmpPage from "../containers/HomeTemplate/StyledCmpPage";
+// import AddUserPage from "../containers/AdminTemplate/AddUserPage";
+import AddUserPage2 from "../containers/AdminTemplate/AddUserPage2";
+import MovieDetailPage from "../containers/HomeTemplate/MovieDetail";
 
 const routesHome = [
   {
@@ -28,7 +28,7 @@ const routesHome = [
   {
     exact: false,
     path: "/detail/:id",
-    component: DetailMoviePage,
+    component: MovieDetailPage,
   },
   {
     exact: false,
@@ -40,16 +40,6 @@ const routesHome = [
     path: "/hooks",
     component: HooksPage,
   },
-  {
-    exact: false,
-    path: "/material-page",
-    component: MaterialPage,
-  },
-  {
-    exact: false,
-    path: "/styled-page",
-    component: StyledCmpPage,
-  },
 ];
 
 const routesAdmin = [
@@ -60,8 +50,8 @@ const routesAdmin = [
   },
   {
     exact: false,
-    path: "/add-user",
-    component: AddUserPage,
+    path: "/add-user-2",
+    component: AddUserPage2,
   },
 ];
 

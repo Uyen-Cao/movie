@@ -1,0 +1,9 @@
+.logo-row .btn-logo{
+    padding: 10px 0;
+    border: none;
+    background: transparent;
+}
+
+.logo-row .btn-logo img{
+    width:100px
+}
