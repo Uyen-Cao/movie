@@ -10,21 +10,6 @@ function LayoutAdmin(props) {
   );
 }
 
-export default function AdminTemplate({ Component, ...props }) {
-  return (
-    <Route
-      {...props}
-      render={(propsComponent) => {
-        if (localStorage.getItem("UserAdmin")) {
-          return (
-            <LayoutAdmin>
-              <Component {...propsComponent} />
-            </LayoutAdmin>
-          );
-        }
-        //Đá về trang Auth
-        return <Redirect to="/auth" />;
-      }}
-    />
-  );
+export default function AdminTemplate() {
+  return <Route />;
 }

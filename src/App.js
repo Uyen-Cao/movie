@@ -6,8 +6,6 @@ import PageNotFound from "./containers/PageNotFound";
 import { routesHome, routesAdmin } from "./routes";
 import HomeTemplate from "./containers/HomeTemplate";
 import AdminTemplate from "./containers/AdminTemplate";
-// import AuthPage from "./containers/AdminTemplate/AuthPage";
-import AuthPage2 from "./containers/AdminTemplate/AuthPage2";
 import LoginPage from "containers/HomeTemplate/LoginPage";
 import SignupPage from "containers/HomeTemplate/SignUpPage";
 
@@ -47,17 +45,7 @@ function App() {
       <Switch>
         {renderRoutesHome(routesHome)}
         {renderRoutesAdmin(routesAdmin)}
-        {/* Trang chủ - localhost:3000 */}
-        {/* <Route exact path="/" component={HomePage} /> */}
 
-        {/* Trang about - localhost:3000/about */}
-        {/* <Route path="/about" component={AboutPage} /> */}
-
-        {/* Trang list movie - localhost:3000/list-movie */}
-        {/* <Route path="/list-movie" component={ListMovie} /> */}
-
-        {/* <Route path="/auth" component={AuthPage} /> */}
-        <Route path="/auth2" component={AuthPage2} />
         <Route path="/log-in" component={LoginPage} />
         <Route path="/sign-up" component={SignupPage} />
 
