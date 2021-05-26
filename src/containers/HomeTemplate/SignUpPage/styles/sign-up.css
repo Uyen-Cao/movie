@@ -1,0 +1,34 @@
+.signup-background{
+    width:100%;
+    position: relative;
+}
+
+
+
+.signup-box-wrapper{
+    width:800px;
+    height: 500px;
+    position: absolute;
+    left: calc(50% - 400px);
+    top: 150px;
+    
+    box-shadow: 0px 0px 15px 20px rgba(0, 0, 0, 0.1);;
+}
+
+.left-box{
+    padding: 50px 40px;
+    padding-bottom: 0;
+
+
+}
+
+.right-box{
+    background-image: url("https://images.pexels.com/photos/2873486/pexels-photo-2873486.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+    background-size: cover;
+   
+}
+
+.signup-input{
+    width:350px !important;
+    padding: 10px 0 !important;
+}

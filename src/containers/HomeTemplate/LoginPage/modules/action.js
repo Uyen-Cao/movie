@@ -22,7 +22,7 @@ const actUserLoginFailed = (err) => {
 };
 
 export const actFetchUserLogin = (user, history) => {
-  console.log(history);
+  console.log(user);
   return (dispatch) => {
     dispatch(actUserLoginRequest());
     axios({

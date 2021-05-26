@@ -50,7 +50,7 @@ export default class NavbarHome extends Component {
               </NavLink>
             </Button>
             <Button variant="contained">
-              <NavLink className="button-link text-dark" to="/log-in">
+              <NavLink className="button-link text-dark" to="/sign-up">
                 SIGN UP
               </NavLink>
             </Button>
@@ -81,21 +81,6 @@ export default class NavbarHome extends Component {
           <li className="nav-item">
             <NavLink className="nav-link btn btn-5" to="/list-movie">
               List Movie
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link btn btn-5" to="/hoc">
-              HOC
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link btn btn-5" to="/hooks">
-              Hooks
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link btn btn-5" to="/styled-page">
-              StyledComponent
             </NavLink>
           </li>
         </ul>

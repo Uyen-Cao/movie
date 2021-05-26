@@ -2,8 +2,6 @@ import HomePage from "./../containers/HomeTemplate/HomePage";
 import AboutPage from "../containers/HomeTemplate/AboutPage";
 import ListMoviePage from "../containers/HomeTemplate/ListMoviePage";
 // import DetailMoviePage from "../containers/HomeTemplate/DetailMoviePage";
-import HocPage from "../containers/HomeTemplate/HocPage";
-import HooksPage from "../containers/HomeTemplate/HooksPage";
 import Dashboard from "../containers/AdminTemplate/DashboardPage";
 // import AddUserPage from "../containers/AdminTemplate/AddUserPage";
 import AddUserPage2 from "../containers/AdminTemplate/AddUserPage2";
@@ -29,16 +27,6 @@ const routesHome = [
     exact: false,
     path: "/detail/:id",
     component: MovieDetailPage,
-  },
-  {
-    exact: false,
-    path: "/hoc",
-    component: HocPage,
-  },
-  {
-    exact: false,
-    path: "/hooks",
-    component: HooksPage,
   },
 ];
 

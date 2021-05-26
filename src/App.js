@@ -9,6 +9,7 @@ import AdminTemplate from "./containers/AdminTemplate";
 // import AuthPage from "./containers/AdminTemplate/AuthPage";
 import AuthPage2 from "./containers/AdminTemplate/AuthPage2";
 import LoginPage from "containers/HomeTemplate/LoginPage";
+import SignupPage from "containers/HomeTemplate/SignUpPage";
 
 function App() {
   const renderRoutesHome = (routes) => {
@@ -58,6 +59,7 @@ function App() {
         {/* <Route path="/auth" component={AuthPage} /> */}
         <Route path="/auth2" component={AuthPage2} />
         <Route path="/log-in" component={LoginPage} />
+        <Route path="/sign-up" component={SignupPage} />
 
         {/* Trang PageNotFound */}
         <Route path="" component={PageNotFound} />

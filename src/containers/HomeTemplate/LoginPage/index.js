@@ -5,24 +5,49 @@ import { NavLink } from "react-router-dom";
 import logo from "./image/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { actFetchUserLogin } from "./modules/action";
+import { useFormik } from "formik";
+import { isEmpty } from "lodash";
+import { toast } from "react-toastify";
+import * as Yup from "yup";
+
 // import Loader from "../../../components/Loader";
 
 import { Button } from "@material-ui/core";
 
 export default function LoginPage(props) {
-  const [user, setUser] = useState({ taiKhoan: "", matKhau: "" });
-  const error = useSelector((state) => state.userReducer.error);
   const dispatch = useDispatch();
-
-  const handleOnchange = (e) => {
-    const { value, name } = e.target;
-    setUser({ ...user, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(actFetchUserLogin(user, props.history));
-  };
+  const error = useSelector((state) => state.userReducer.error);
+  const {
+    handleSubmit,
+    handleChange,
+    values,
+    touched,
+    errors,
+    handleBlur,
+  } = useFormik({
+    initialValues: {
+      taiKhoan: "",
+      matKhau: "",
+    },
+    validationSchema: Yup.object({
+      taiKhoan: Yup.string()
+        // .email("Email không đúng định dạng")
+        .required("Vui lòng nhập tên tài khoản"),
+      matKhau: Yup.string()
+        // .min(5, "Password must be longer than 5 characters")
+        .required("Vui lòng nhập mật khẩu"),
+    }),
+    onSubmit: (values) => {
+      if (!isEmpty(values.taiKhoan) && !isEmpty(values.matKhau)) {
+        dispatch(
+          actFetchUserLogin(
+            { taiKhoan: values.taiKhoan, matKhau: values.matKhau },
+            props.history
+          )
+        );
+      }
+    },
+  });
 
   return (
     <div>
@@ -34,27 +59,40 @@ export default function LoginPage(props) {
           </NavLink>
           <div className="register">
             <img className=" cinema-logo" src={logo} />
-            <h2>Sign Up</h2>
+            <h2>Log in</h2>
             {error && (
               <span className="text-danger">
                 Tài khoản hoặc mật khẩu không đúng
               </span>
             )}
             <form action method="post" className="form" onSubmit={handleSubmit}>
+              {touched.taiKhoan && errors.taiKhoan ? (
+                <div className="text-danger text-left">{errors.taiKhoan}</div>
+              ) : (
+                ""
+              )}
               <div className="form__field">
                 <input
                   type="text"
                   placeholder="username.123"
-                  onChange={handleOnchange}
+                  onChange={handleChange}
                   name="taiKhoan"
+                  onBlur={handleBlur}
                 />
               </div>
+
+              {touched.matKhau && errors.matKhau ? (
+                <div className="text-danger text-left">{errors.matKhau}</div>
+              ) : (
+                ""
+              )}
               <div className="form__field">
                 <input
                   type="password"
                   placeholder="••••••••••••"
-                  onChange={handleOnchange}
+                  onChange={handleChange}
                   name="matKhau"
+                  onBlur={handleBlur}
                 />
               </div>
 
