@@ -56,9 +56,6 @@ export default function MovieDetailPage(props) {
           </div>
         </div>
       </div>
-      <div className="py-3 bg-dark">
-        <ShowtimeTable />
-      </div>
     </div>
   );
 }
