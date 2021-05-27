@@ -4,6 +4,7 @@ import detailMovieReducer from "../../containers/HomeTemplate/MovieDetail/module
 import cinemaListReducer from "../../components/ShowtimeTable/modules/reducer";
 import cinemaPlaceReducer from "../../components/ShowtimeTable/cinemaItem/modules/reducer";
 import userReducer from "../../containers/HomeTemplate/LoginPage/modules/reducer";
+import registerReducer from "../../containers/HomeTemplate/SignUpPage/modules/reducer";
 
 const rootReducer = combineReducers({
   listMovieReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   cinemaListReducer,
   cinemaPlaceReducer,
   userReducer,
+  registerReducer,
 });
 
 export default rootReducer;

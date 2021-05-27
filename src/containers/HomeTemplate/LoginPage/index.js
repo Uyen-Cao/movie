@@ -7,10 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { actFetchUserLogin } from "./modules/action";
 import { useFormik } from "formik";
 import { isEmpty } from "lodash";
-import { toast } from "react-toastify";
 import * as Yup from "yup";
-
-// import Loader from "../../../components/Loader";
 
 import { Button } from "@material-ui/core";
 

@@ -1,5 +1,4 @@
 import * as ActionType from "./constants";
-import { toast } from "react-toastify";
 
 const initialState = {
   loading: false,
@@ -7,25 +6,24 @@ const initialState = {
   error: null,
 };
 
-const userReducer = (state = initialState, action) => {
+const registerReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.USER_LOGIN_REQUEST: {
+    case ActionType.REGISTER_REQUEST: {
       state.loading = true;
       state.data = null;
       state.error = null;
       return { ...state };
     }
-    case ActionType.USER_LOGIN_SUCCESS: {
+    case ActionType.REGISTER_SUCCESS: {
       state.loading = false;
       state.data = action.payload;
       state.error = null;
       return { ...state };
     }
-    case ActionType.USER_LOGIN_FAILED: {
+    case ActionType.REGISTER_FAILED: {
       state.loading = false;
       state.data = null;
       state.error = action.payload;
-      toast.error("Đăng nhập thất bại");
       return { ...state };
     }
 
@@ -33,4 +31,4 @@ const userReducer = (state = initialState, action) => {
       return { ...state };
   }
 };
-export default userReducer;
+export default registerReducer;
