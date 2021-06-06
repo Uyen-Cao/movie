@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./style/index.css";
 import MovieSchedule from "../movieSchedule";
 
 export default function CinemaPlace(props) {
+  useEffect(() => {
+    if (props.place.maCumRap === "bhd-star-cineplex-pham-hung") {
+      props.getCinemaSchedule(props.place.danhSachPhim);
+    }
+  }, []);
   const handleMovieSchedule = (movieList) => {
     props.getCinemaSchedule(movieList);
   };

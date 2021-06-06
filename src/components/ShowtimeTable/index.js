@@ -11,7 +11,6 @@ import MovieSchedule from "./movieSchedule";
 export default function ShowtimeTable() {
   const [movieSchedule, setMovieSchedule] = useState([]);
   const dispatch = useDispatch();
-
   const cinemaList = useSelector((state) => state.cinemaListReducer.data);
   const cinemaPlaces = useSelector((state) => state.cinemaPlaceReducer.data);
   const isLoading = useSelector((state) => state.cinemaPlaceReducer.loading);
@@ -47,7 +46,6 @@ export default function ShowtimeTable() {
   };
   const renderCinemaSchedule = () => {
     if (movieSchedule) {
-      console.log(movieSchedule);
       return (
         (isLoading && <Loader />) || (
           <MovieSchedule movieSchedule={movieSchedule} />

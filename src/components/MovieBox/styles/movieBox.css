@@ -1,9 +1,22 @@
 
 .selecting-box{
+    width: 1140px !important;
     background: #fff;
     position: absolute;
-    right: 150px;
+    right: calc(50% - 570px);
     top: 830px;
     z-index: 9999;
     border-radius: 10px;
+}
+
+.film-box, .theatre-box{
+    width:300px;
+    margin: 0 5px;
+    padding: 10px 0;
+}
+
+.date-box, .time-box{
+    width:120px;
+    margin: 0 5px;
+    padding: 10px 0;
 }
