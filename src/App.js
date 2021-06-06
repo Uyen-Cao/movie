@@ -46,6 +46,7 @@ function App() {
         {renderRoutesHome(routesHome)}
         {renderRoutesAdmin(routesAdmin)}
 
+        <Route path="/admin" component={AdminTemplate} />
         <Route path="/log-in" component={LoginPage} />
         <Route path="/sign-up" component={SignupPage} />
 
