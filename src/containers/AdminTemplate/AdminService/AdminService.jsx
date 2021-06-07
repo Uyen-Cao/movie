@@ -28,9 +28,6 @@ class AdminService {
   editAUser = (token, data)=>{
     return axios(config("put","https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung",token, data))
   }
-  editAUser1 = (token, data)=>{
-    return axios(config("put","https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung",token, data))
-  }
 }
 
 const adminService = new AdminService();

@@ -4,70 +4,82 @@ import MovieItem from "components/MovieItem";
 import Loader from "./../../../components/Loader";
 import { actFetchListMovie } from "./modules/action";
 import { connect } from "react-redux";
+import "./styles/listMoviePage.css";
 
 export default function ListMoviePage() {
   const data = useSelector((state) => state.listMovieReducer.data);
   const loading = useSelector((state) => state.listMovieReducer.loading);
-  const [listMovieShow, setListMovieShow] = useState();
+  const [listMovieShow, setListMovieShow] = useState([]);
+  const [currentButtonActive, setCurrentButtonActive] = useState(
+    "btn btn-decor from-center"
+  );
+  const [soonButtonActive, setSoonButtonActive] = useState(
+    "btn btn-decor from-center"
+  );
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(actFetchListMovie());
   }, []);
+  useEffect(() => {
+    if (data) {
+      handleCurrentMovie();
+    }
+  }, [data]);
 
-  const currentMovieArray = (movieArray) => {
+  const handleCurrentMovie = () => {
     let currentMovies = [];
-    for (let i = 0; i <= 11; i++) {
-      console.log(movieArray[i]);
-      currentMovies.push(movieArray[i]);
+    for (let i = 0; i <= 15; i++) {
+      currentMovies.push(data[i]);
     }
-    return currentMovies;
-  };
-  const soonMovieArray = (movieArray) => {
-    let soonMovies = [];
-    for (let i = 12; i <= 23; i++) {
-      console.log(movieArray[i]);
-      soonMovies.push(movieArray[i]);
-    }
-    return soonMovies;
+    setCurrentButtonActive("btn btn-decor from-center btn-active");
+    setSoonButtonActive("btn btn-decor from-center");
+    setListMovieShow(currentMovies);
   };
 
-  const renderListMovie = () => {
+  const handleSoonMovie = () => {
+    let soonMovies = [];
+    for (let i = 16; i <= 23; i++) {
+      soonMovies.push(data[i]);
+    }
+    setCurrentButtonActive("btn btn-decor from-center");
+    setSoonButtonActive("btn btn-decor from-center btn-active");
+    setListMovieShow(soonMovies);
+  };
+
+  const renderListMovie = (listMovie) => {
     if (loading) {
       return <Loader />;
     }
-    if (data) {
-      const soonMovies = soonMovieArray(data);
-      return soonMovies.map((movie) => {
+    if (listMovie) {
+      return listMovie.map((movie) => {
         return <MovieItem key={movie.maPhim} movie={movie} />;
       });
     }
   };
-  // const renderCurrentListMovie = () => {};
-  // const renderSoonListMovie = () => {
-  //   console.log(321);
-  // };
 
   return (
     <div className="container">
       <div className="button-transfer container text-center">
         <button
-          // onClick={() => {
-          //   renderCurrentListMovie();
-          // }}
-          className="btn btn-decor from-center"
+          onClick={() => {
+            handleCurrentMovie();
+          }}
+          className={currentButtonActive}
         >
           ĐANG CHIẾU
         </button>
         <button
-          // onClick={() => {
-          //   renderSoonListMovie();
-          // }}
-          className="btn btn-decor from-center"
+          onClick={() => {
+            handleSoonMovie();
+          }}
+          className={soonButtonActive}
         >
           SẮP CHIẾU
         </button>
       </div>
-      <div className="row justify-content-between">{renderListMovie()}</div>
+      <div className="row justify-content-between">
+        {renderListMovie(listMovieShow)}
+      </div>
     </div>
   );
 }

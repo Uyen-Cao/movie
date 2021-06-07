@@ -1,15 +1,12 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-
-function LayoutAdmin(props) {
-  return (
-    <>
-      <nav>Navbar Admin</nav>
-      {props.children}
-    </>
-  );
-}
+import DashboardMovie from "./DashboardPage/DashboardMovie";
+import DasboardUser from "./DashboardPage/DashboardUser";
 
 export default function AdminTemplate() {
-  return <Route />;
+  return (
+    <>
+      <DasboardUser />
+    </>
+  );
 }

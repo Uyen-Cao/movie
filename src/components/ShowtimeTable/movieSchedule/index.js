@@ -15,7 +15,7 @@ export default function MovieSchedule({ movieSchedule }) {
       );
     });
   };
-  console.log(movieSchedule);
+
   return (
     <div className="movie-showtime my-2 container">
       <div className="row">
@@ -34,21 +34,6 @@ export default function MovieSchedule({ movieSchedule }) {
           </div>
           <div className="my-2 showtime-row text-center">
             {renderTime(movieSchedule.movieSchedule[0].lstLichChieuTheoPhim)}
-            {/* <Button className="mx-2" variant="contained">
-                12:00
-              </Button>
-              <Button className="mx-2" variant="contained">
-                14:00
-              </Button>
-              <Button className="mx-2" variant="contained">
-                16:30
-              </Button>
-              <Button className="mx-2" variant="contained">
-                19:40
-              </Button>
-              <Button className="mx-2" variant="contained">
-                21:00
-              </Button> */}
           </div>
         </div>
       </div>
