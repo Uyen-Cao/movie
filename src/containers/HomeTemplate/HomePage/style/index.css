@@ -1,0 +1,14 @@
+.carousel{
+position: relative;
+}
+
+
+.movie-detail-carousel{
+    width: 50%;
+    position: absolute;
+    top: 150px;
+    left: 70px;
+    padding: 20px 30px;
+    border-radius: 10px;
+    background: radial-gradient(black, transparent);
+}

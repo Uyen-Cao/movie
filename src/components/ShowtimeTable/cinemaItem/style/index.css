@@ -1,0 +1,14 @@
+.logo-row .btn-logo{
+    padding: 10px 0;
+    border: none;
+    background: transparent;
+    opacity: 0.5;
+}
+
+.logo-row .btn-logo img{
+    width:100px
+}
+
+.btn-active{
+    opacity: 1 !important;
+}

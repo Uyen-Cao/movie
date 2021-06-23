@@ -1,0 +1,35 @@
+======== Buổi 9 ======
+* Routing (Basic)
+
+======== Buổi 10 ======
+* Fetch ListMovie
+* Redux thunk <=> Redux saga
+
+npm install redux-thunk --save   
+
+import { createStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk))
+);
+
+======== Buổi 11 ======
+* Detail ListMovie
+* HOC (Higher order component)
+
+======== Buổi 12 ======
+* Hooks
+* Routing (Adv)
+* Auth
+
+======== Buổi 13 ======
+* Auth
+* Guard Routing Admin
+* Add user (Token)
+
+======== Buổi 14 ======
+* Material UI
+* Styeled Component

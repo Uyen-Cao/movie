@@ -1,0 +1,13 @@
+.btn-place{
+    border: none;
+    opacity: 0.5
+}
+
+.btn-place:hover{
+    opacity: 1;
+    transition: all 0.5s
+}
+
+.btn-place:active{
+    opacity: 1;
+}

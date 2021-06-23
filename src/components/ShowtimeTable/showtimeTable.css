@@ -1,0 +1,57 @@
+.movie-box-wrapper{
+    padding: 0 !important;
+}
+.table thead th{
+    border-bottom: none !important;
+    border-top: none;
+    background-color:#000;
+    color: #fff;
+}
+
+.header-table{
+    background: #fff;
+    color: #000;
+    height: 60px;
+}
+.title-block{
+    height: 60px;
+    padding-top: 15px;
+    border-right: 1px solid #c8c8c8;
+}
+.movie-table-layout{
+    height: 500px;
+    overflow-y: overlay;
+    border: 1px solid #c8c8c8;
+    background: #fff
+}
+
+.cinema-row{
+    border-right: 1px solid #c8c8c8;
+}
+
+.logo-item img{
+    width: 50%;
+    padding: 10px 0
+}
+
+.logo-list, .cinema-list{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+}
+.cinema-list{
+    border-right: 1px solid #c8c8c8;
+    border-radius: 0 !important;
+}
+.cinema-detail{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.cinema-detail .img{
+    width: 100px;
+    height: 100px;
+}
+
