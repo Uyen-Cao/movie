@@ -2,6 +2,7 @@ import HomePage from "./../containers/HomeTemplate/HomePage";
 import AboutPage from "../containers/HomeTemplate/AboutPage";
 import ListMoviePage from "../containers/HomeTemplate/ListMoviePage";
 import MovieDetailPage from "../containers/HomeTemplate/MovieDetail";
+import BookingPage from "containers/HomeTemplate/BookingPage";
 
 const routesHome = [
   {
@@ -24,6 +25,7 @@ const routesHome = [
     path: "/detail/:id",
     component: MovieDetailPage,
   },
+
 ];
 
 const routesAdmin = [];

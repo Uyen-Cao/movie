@@ -1,0 +1,17 @@
+.seat-movie{
+    padding: 20px;
+}
+
+.seat-icon{
+    display: inline-block;
+    margin: 20px 10px;
+}
+.seat-button .fa-stop{
+    font-size: 30px;
+}
+
+
+.letterID{
+    display: inline-block;
+    width: 10px;
+}

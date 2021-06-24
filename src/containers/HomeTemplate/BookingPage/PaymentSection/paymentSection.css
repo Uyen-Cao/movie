@@ -1,0 +1,43 @@
+.payment-outer{
+    box-shadow: 0px 75px 50px #000;
+}
+.payment-container{
+    background: #fff;
+    padding: 25px 40px;
+    min-height: 850px;
+}
+
+.movie-image img{
+    width: 60%
+}
+
+.movie-information, .payment-selection, .payment-customer{
+    padding: 10px;
+    margin: 0 10px;
+    border-bottom: 2px dotted #000;
+}
+
+.movie-information span{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.payment-total{
+    padding: 10px;
+    text-align: left;
+}
+.payment-total span{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.payment-notice{
+    padding: 10px;
+}
+
+.payment-button button{
+    border-radius: 0 !important;
+    font-size: 20px;
+    font-weight: 600;
+}
+

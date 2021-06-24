@@ -8,6 +8,7 @@ import HomeTemplate from "./containers/HomeTemplate";
 import AdminTemplate from "./containers/AdminTemplate";
 import LoginPage from "containers/HomeTemplate/LoginPage";
 import SignupPage from "containers/HomeTemplate/SignUpPage";
+import BookingPage from "containers/HomeTemplate/BookingPage";
 
 function App() {
   const renderRoutesHome = (routes) => {
@@ -49,6 +50,7 @@ function App() {
         <Route path="/admin" component={AdminTemplate} />
         <Route path="/log-in" component={LoginPage} />
         <Route path="/sign-up" component={SignupPage} />
+        <Route path="/booking/:id" component={BookingPage} />
 
         {/* Trang PageNotFound */}
         <Route path="" component={PageNotFound} />
