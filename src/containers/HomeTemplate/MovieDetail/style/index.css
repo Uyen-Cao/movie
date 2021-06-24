@@ -33,6 +33,15 @@ header{
     height: 100%;
     padding-top:190px;
     padding-bottom:130px;
+    background-color: transparent !important;
+}
+
+.movie-details .wrapper{
+    height: 100%;
+}
+
+.movie-content, .movie-poster{
+    margin: auto 0;
 }
 .movie-logo{
     font-size: 30px;
@@ -46,7 +55,7 @@ header{
 .button-limitage{
     background-color: #ffd230 !important;
 }
-.movie-poster{
+.movie-poster img{
     width:80%;
 }
 

@@ -5,7 +5,6 @@
     position: absolute !important;
     right: calc(50% - 570px);
     top: 780px;
-    z-index: 9999 !important;
     border-radius: 10px;
 }
 
