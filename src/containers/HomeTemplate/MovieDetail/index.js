@@ -5,9 +5,12 @@ import { fetchDetailMovie } from "./modules/action";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "components/Loader";
 import Popup from "components/Popup";
+import PopupMovie from "components/PopupMovie";
+import { fetchMovieSchedule } from "components/MovieBox/modules/action";
 
 export default function MovieDetailPage(props) {
   const [button, setButton] = useState(false);
+  const [bookingButton, setBookingButton] = useState(false)
   const dispatch = useDispatch();
   const data = useSelector((state) => state.detailMovieReducer.data);
   const loading = useSelector((state) => state.detailMovieReducer.loading);
@@ -43,7 +46,12 @@ export default function MovieDetailPage(props) {
               </div>
 
               <div className="details-btn">
-                <Button variant="contained" color="secondary">
+                <Button 
+                  onClick={() => {
+                    setBookingButton(true);
+                    dispatch(fetchMovieSchedule(data.maPhim))
+                  }}
+                  variant="contained" color="secondary">
                   Đặt vé
                 </Button>
                 <Button
@@ -66,6 +74,13 @@ export default function MovieDetailPage(props) {
           movieTrailer={data && data.trailer}
           trigger={button}
           setTrigger={setButton}
+        />
+      </div>
+      <div>
+        <PopupMovie
+        data={data}
+        trigger={bookingButton}
+        setTrigger={setBookingButton}
         />
       </div>
     </div>

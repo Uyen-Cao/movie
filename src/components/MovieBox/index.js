@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import {useHistory} from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import "./styles/movieBox.css";
@@ -16,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MovieBox() {
   const classes = useStyles();
+  const history = useHistory();
   const dispatch = useDispatch();
   const listMovie = useSelector((state) => state.listMovieReducer.data);
   const movieSchedule = useSelector((state) => state.movieScheduleReducer.data);
@@ -28,6 +30,22 @@ export default function MovieBox() {
   const [theatreSchedule, setTheatreSchedule] = useState(null);
   const [dateSchedule, setDateSchedule] = useState(null);
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    setMovie({ ...movie, rap: "", ngayChieu: "", maLichChieu: "" });
+  }, [movie.maPhim]);
+
+  useEffect(() => {
+    setMovie({...movie, ngayChieu: "", maLichChieu:""});
+    document.getElementById("dateBox").value = "0";
+    document.getElementById("timeBox").value = "0";
+  }, [movie.rap])
+
+  useEffect(() => {
+    setMovie({...movie, maLichChieu:""});
+    document.getElementById("timeBox").value = "0";
+  }, [movie.ngayChieu])
+
   // Select-Film Box
   const giveFilmOptions = () => {
     return (
@@ -81,7 +99,6 @@ export default function MovieBox() {
     }
   };
   const handleDateChange = (event) => {
-  
     setMovie({ ...movie, ngayChieu: event.target.value });
     setDateSchedule(event.target.value);
   };
@@ -105,19 +122,27 @@ export default function MovieBox() {
     setMovie({ ...movie, maLichChieu: event.target.value });
   };
   const handleOnSubmit = () => {
-    if (movie.maLichChieu) {
-      setError(null);
-    }
     if (movie.maLichChieu === "" || movie.maLichChieu === "Suất chiếu") {
       setError("Xin hãy chọn lịch chiếu phù hợp");
+    } else {
+      if(localStorage.getItem("UserLogin")){
+        history.push({
+          pathname: `booking/${movie.maLichChieu}`,
+          state: {
+            cinemaID: movie.maLichChieu,
+          },
+        });
+      } else{
+        history.push({
+          pathname: "/log-in",
+          state: {
+            nextPathname: `booking/${movie.maLichChieu}`,
+            cinemaID: movie.maLichChieu,
+          }
+        })
+      }
     }
   };
-  useEffect(() => {
-    setMovie({ ...movie, rap: "", ngayChieu: "", maLichChieu: "" });
-  }, [movie.maPhim]);
-  useEffect(() => {
-    console.log(movie);
-  }, [movie]);
 
   return (
     <div>
@@ -140,19 +165,21 @@ export default function MovieBox() {
             {movie.maPhim && giveTheaterOptions()}
           </select>
           <select
+            id="dateBox"
             className="form-select p-2 date-box"
             aria-label="Default select example"
             onChange={handleDateChange}
           >
-            <option selected>Ngày xem</option>
+            <option value="0" selected>Ngày xem</option>
             {movie.rap && giveDateOptions(theatreSchedule)}
           </select>
           <select
+            id="timeBox"
             className="form-select p-2 time-box"
             aria-label="Default select example"
             onChange={handleTimeChange}
           >
-            <option selected>Suất chiếu</option>
+            <option value="0" selected>Suất chiếu</option>
             {movie.ngayChieu && giveTimeOptions(dateSchedule, theatreSchedule)}
           </select>
           <div className=" d-inline text-center">

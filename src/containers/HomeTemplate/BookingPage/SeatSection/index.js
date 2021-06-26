@@ -1,5 +1,6 @@
 import React from 'react'
 import "./seatSection.css"
+import Seat from "../Seat"
 
 export default function SeatSection() {
 
@@ -18,9 +19,7 @@ export default function SeatSection() {
           for (let i = 1; i <= 16; i++) {
             seatID = seatID + 1;
             horizontalLine.push(
-              <button id={seatID} className="btn px-1 py-0 seat-button">
-                <i class="fa fa-stop"></i>
-              </button>
+              <Seat key={seatID} id={seatID}/>
             );
           }
           seatGroup.push(<div className="letterID"><span>{letterID}</span></div>, horizontalLine, <div className="letterID"><span>{letterID}</span></div>, <br/>);

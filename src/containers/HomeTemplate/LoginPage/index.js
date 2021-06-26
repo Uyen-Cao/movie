@@ -4,6 +4,7 @@ import "./style/index.scss";
 import { NavLink } from "react-router-dom";
 import logo from "./image/logo.png";
 import { useDispatch, useSelector } from "react-redux";
+import {useHistory} from "react-router-dom";
 import { actFetchUserLogin } from "./modules/action";
 import { useFormik } from "formik";
 import { isEmpty } from "lodash";
@@ -12,6 +13,8 @@ import * as Yup from "yup";
 import { Button } from "@material-ui/core";
 
 export default function LoginPage(props) {
+  const history = useHistory();
+  console.log(history);
   const dispatch = useDispatch();
   const error = useSelector((state) => state.userReducer.error);
   const {
@@ -42,6 +45,16 @@ export default function LoginPage(props) {
             props.history
           )
         );
+        if (history.location.state) {
+          history.push({
+            pathname: history.location.state.nextPathname,
+            state: {
+              cinemaID: history.location.state.cinemaID,
+            },
+          });
+        } else {
+          history.replace("/");
+        }
       }
     },
   });

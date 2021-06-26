@@ -22,7 +22,6 @@ const actUserLoginFailed = (err) => {
 };
 
 export const actFetchUserLogin = (user, history) => {
-  console.log(user);
   return (dispatch) => {
     dispatch(actUserLoginRequest());
     axios({
@@ -32,7 +31,6 @@ export const actFetchUserLogin = (user, history) => {
     })
       .then((result) => {
         localStorage.setItem("UserLogin", JSON.stringify(result.data));
-        history.replace("/");
         dispatch(actUserLoginSuccess(result.data));
       })
       .catch((err) => {

@@ -1,9 +1,30 @@
 import React from "react";
+import {useHistory} from "react-router-dom";
 import "./movieSchedule.css"
 
 export default function MovieSchedule({ movieSchedule }) {
+  const history = useHistory();
   if (movieSchedule.length === 0) {
     return "";
+  }
+
+  const moveToCinema = (cinemaID) => {
+    if(localStorage.getItem("UserLogin")){
+      history.push({
+        pathname: `booking/${cinemaID}`,
+        state: {
+          cinemaID: cinemaID,
+        },
+      });
+    } else{
+      history.push({
+        pathname: "/log-in",
+        state: {
+          nextPathname: `booking/${cinemaID}`,
+          cinemaID: cinemaID,
+        }
+      })
+    }
   }
 
   const renderTime = (schedule) => {
@@ -12,13 +33,13 @@ export default function MovieSchedule({ movieSchedule }) {
       schedule.map((each) => {
         let date = new Date(each.ngayChieuGioChieu);
         let time = date.toLocaleTimeString();
-        array.push(time);
+        array.push({time: time, cinemaID: each.maLichChieu});
       });
       return array.map((item, index) => {
         if(index > 5){
           return;
         }
-        return (<button className=" ml-1 my-2 btn btn-primary">{item}</button>);
+        return (<button onClick={() => moveToCinema(item.cinemaID)} className=" ml-1 my-2 btn btn-primary">{item.time}</button>);
       });
     }
   };
