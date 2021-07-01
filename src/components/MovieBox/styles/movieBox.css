@@ -2,9 +2,6 @@
 .selecting-box{
     width: 1140px !important;
     background: #fff;
-    position: absolute !important;
-    right: calc(50% - 570px);
-    top: 780px;
     border-radius: 10px;
 }
 
@@ -18,4 +15,10 @@
     width:120px;
     margin: 0 5px;
     padding: 10px 0;
+}
+
+@media only screen and (max-width: 992px){
+    .selecting-box{
+        max-width: 100% !important;
+    }
 }

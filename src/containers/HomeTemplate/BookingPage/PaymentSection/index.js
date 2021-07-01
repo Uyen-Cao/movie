@@ -3,9 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchBookingStatus } from "./modules/action";
 import {useHistory} from "react-router-dom";
 import "./paymentSection.css";
+import Loader from "components/Loader";
 
 export default function PaymentSection(props) {
   const movieData = useSelector((state) => state.boxOfficeReducer.data);
+  const loading = useSelector((state) => state.boxOfficeReducer.loading);
   const dispatch = useDispatch();
   const history = useHistory();
   const user = JSON.parse(localStorage.getItem("UserLogin"));
@@ -45,7 +47,7 @@ export default function PaymentSection(props) {
         <div className="payment-wrapper">
           <div className="payment-movie">
             <div className="movie-image">
-              <img src={movieData && movieData.thongTinPhim.hinhAnh} />
+              {loading ? <Loader/> : <img src={movieData && movieData.thongTinPhim.hinhAnh} />}
             </div>
             <div className="movie-information">
               <span>{movieData && movieData.thongTinPhim.tenPhim}</span>

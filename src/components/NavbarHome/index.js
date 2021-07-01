@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { NavLink, Link } from "react-router-dom";
+import React, { Component, useRef } from "react";
+import { NavLink } from "react-router-dom";
+import {Link} from 'react-scroll';
 import { Button } from "@material-ui/core";
-import { Redirect } from "react-router-dom";
 import "./style/index.css";
 import logo from "./image/logo.png";
 
@@ -16,7 +16,7 @@ export default class NavbarHome extends Component {
         };
         return (
           <>
-            <div className="w-50">
+            <div className="">
               <a href="#">
                 <img
                   className="avatar-user"
@@ -34,9 +34,9 @@ export default class NavbarHome extends Component {
                 variant="contained"
                 color="secondary"
               >
-                <Link className="button-link" to="" refresh="true">
+                <NavLink className="button-link" to="" refresh="true">
                   LOG OUT
-                </Link>
+                </NavLink>
               </Button>
             </div>
           </>
@@ -63,28 +63,28 @@ export default class NavbarHome extends Component {
       <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between ">
         <a
           href="/"
-          className="movie-logo d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none"
+          className="movie-logo d-flex align-items-center col-md-4 col-lg-4 mb-2 mb-md-0 text-dark text-decoration-none"
         >
-          <img className="w-50" src={logo} />
+          <img src={logo} />
         </a>
-        <ul className="content-menu nav col-md-6 mb-2 justify-content-center mb-md-0">
+        <ul className="content-menu nav col-md-4 col-lg-4 mb-2 justify-content-center mb-md-0">
           <li className="nav-item">
-            <NavLink exact className="nav-link btn btn-5" to="/">
+            <Link spy={true} smooth={true} exact className="nav-link btn btn-5" to="/">
               Home
-            </NavLink>
+            </Link>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link btn btn-5" to="/about">
-              About
-            </NavLink>
+            <Link spy={true} smooth={true} className="nav-link btn btn-5" to="list-movie">
+              Phim
+            </Link>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link btn btn-5" to="/list-movie">
-              List Movie
-            </NavLink>
+            <Link spy={true} smooth={true} className="nav-link btn btn-5" to="movie-schedule">
+              Lịch chiếu
+            </Link>
           </li>
         </ul>
-        <div className="right-column col-md-3 text-right d-flex align-items-center">
+        <div className="right-column col-md-4 col-lg-4 text-right d-flex align-items-center">
           {renderIfLogin()}
         </div>
       </header>

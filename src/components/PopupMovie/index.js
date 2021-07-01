@@ -15,14 +15,18 @@ export default function PopupMovie(props) {
       maLichChieu: "",
     });
     useEffect(() => {
-      setMovie({ ...movie, ngayChieu: "", maLichChieu: "" });
-    //   document.getElementById("dateBox").value = "0";
-    //   document.getElementById("timeBox").value = "0";
+      if (props.trigger) {
+        setMovie({ ...movie, ngayChieu: "", maLichChieu: "" });
+        document.getElementById("dateBox").value = "0";
+        document.getElementById("timeBox").value = "0";
+      }
     }, [movie.rap]);
 
     useEffect(() => {
-      setMovie({ ...movie, maLichChieu: "" });
-    //   document.getElementById("timeBox").value = "0";
+      if(props.trigger){
+        setMovie({ ...movie, maLichChieu: "" });
+        document.getElementById("timeBox").value = "0";
+      }
     }, [movie.ngayChieu]);
     const movieSchedule = useSelector(
       (state) => state.movieScheduleReducer.data
@@ -128,7 +132,7 @@ export default function PopupMovie(props) {
             <img src={data && data.hinhAnh} />
           </div>
           <div className="col-md-6">
-            {/* <div className="cinema-selection pb-4 mr-5"> */}
+            <div className="cinema-selection pb-4 mr-5">
               <select
                 onChange={handleCinemaChange}
                 className="form-select"
@@ -139,8 +143,8 @@ export default function PopupMovie(props) {
                 </option>
                 {giveCinemaOptions()}
               </select>
-            {/* </div> */}
-            {/* <div className="date-selection pb-4 mr-5"> */}
+            </div>
+            <div className="date-selection pb-4 mr-5">
               <select
                 id="dateBox"
                 onChange={handleDateChange}
@@ -152,8 +156,8 @@ export default function PopupMovie(props) {
                 </option>
                 {movie.rap && giveDateOptions(theatreSchedule)}
               </select>
-            {/* </div> */}
-            {/* <div className="time-selection pb-4 mr-5"> */}
+            </div>
+            <div className="time-selection pb-4 mr-5">
               <select
                 onChange={handleTimeChange}
                 id="timeBox"
@@ -165,7 +169,7 @@ export default function PopupMovie(props) {
                 </option>
                 {giveTimeOptions(dateSchedule, theatreSchedule)}
               </select>
-            {/* </div> */}
+            </div>
             {error ? <div className="text-danger text-right">{error}</div> : ""}
             <div className="button-selection mr-5">
               <button

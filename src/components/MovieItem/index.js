@@ -9,8 +9,8 @@ export default function MovieItem({ movie }) {
 
   return (
     <>
-      <div className="py-4 box">
-        <div className="box-img">
+      <div className="py-4 box col-lg-3 col-md-4 col-sm-6">
+        <div className="box-img text-center">
           <img className="card-img-top" src={movie.hinhAnh} alt="" />
         </div>
         <div className="content">

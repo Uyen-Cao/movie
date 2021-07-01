@@ -19,3 +19,10 @@
 .vip-seat .fa-stop{
     color: #ffc107;
 }
+
+.cinema-screen{
+    height: 0px;
+    border: solid 5px #dc3545;
+    border-radius: 50%/100px 100px 0 0;
+    margin: 20px 50px;
+}

@@ -55,6 +55,8 @@ export default function SeatSection(props) {
           <span className="pl-2 font-weight-bold">{movieData && movieData.thongTinPhim.tenRap}</span>
         </div>
       </div>
+      <div class="cinema-screen text-center"></div>
+      <div className="text-center font-weight-bold pb-5">SCREEN</div>
       <div className="seat-group text-center">{renderSeat()}</div>
       <div className="seat-classify text-center">
         <div className="seat-button seat-icon">

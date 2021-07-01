@@ -14,15 +14,10 @@ export default function MovieDetailPage(props) {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.detailMovieReducer.data);
   const loading = useSelector((state) => state.detailMovieReducer.loading);
-  const error = useSelector((state) => state.detailMovieReducer.error);
 
   useEffect(() => {
     dispatch(fetchDetailMovie(props.match.params.id));
-  });
-
-  if (loading) {
-    return <Loader></Loader>;
-  }
+  }, []);
 
   return (
     <div className="movie-layout">
@@ -46,12 +41,14 @@ export default function MovieDetailPage(props) {
               </div>
 
               <div className="details-btn">
-                <Button 
+                <Button
                   onClick={() => {
                     setBookingButton(true);
-                    dispatch(fetchMovieSchedule(data.maPhim))
+                    dispatch(fetchMovieSchedule(data.maPhim));
                   }}
-                  variant="contained" color="secondary">
+                  variant="contained"
+                  color="secondary"
+                >
                   Đặt vé
                 </Button>
                 <Button
@@ -64,7 +61,7 @@ export default function MovieDetailPage(props) {
               </div>
             </div>
             <div className="col-4 movie-poster">
-              <img src={data && data.hinhAnh} />
+              {loading ? <Loader /> : <img src={data && data.hinhAnh} />}
             </div>
           </div>
         </div>
@@ -78,9 +75,9 @@ export default function MovieDetailPage(props) {
       </div>
       <div>
         <PopupMovie
-        data={data}
-        trigger={bookingButton}
-        setTrigger={setBookingButton}
+          data={data}
+          trigger={bookingButton}
+          setTrigger={setBookingButton}
         />
       </div>
     </div>

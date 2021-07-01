@@ -17,8 +17,10 @@ export default function Seat(props) {
       props.getSeatRemove(props.seatRemovedByButton);
       filterVipSeat(props.seatRemovedByButton.tenGhe);
     };
-  }, [props.seatRemovedByButton])
+  }, [props.seatRemovedByButton]);
   useEffect(() => {
+    setSeatDisabled(false);
+    filterVipSeat(props.id);
     seatBooked &&
       seatBooked.danhSachGhe.forEach((seat) => {
         if (seat.tenGhe == props.id) {

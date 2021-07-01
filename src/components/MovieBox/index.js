@@ -145,11 +145,11 @@ export default function MovieBox() {
   };
 
   return (
-    <div>
+ 
       <div className="container py-3 selecting-box">
         <form className="row justify-content-center">
           <select
-            className="form-select p-2 film-box"
+            className="form-select film-box col-md-3"
             aria-label="Default select example"
             onChange={handleFilmChange}
           >
@@ -157,7 +157,7 @@ export default function MovieBox() {
             {giveFilmOptions()}
           </select>
           <select
-            className="form-select p-2 theatre-box"
+            className="form-select theatre-box  col-md-2"
             aria-label="Default select example"
             onChange={handleTheaterChange}
           >
@@ -166,7 +166,7 @@ export default function MovieBox() {
           </select>
           <select
             id="dateBox"
-            className="form-select p-2 date-box"
+            className="form-select date-box  col-md-2"
             aria-label="Default select example"
             onChange={handleDateChange}
           >
@@ -175,7 +175,7 @@ export default function MovieBox() {
           </select>
           <select
             id="timeBox"
-            className="form-select p-2 time-box"
+            className="form-select time-box  col-md-2"
             aria-label="Default select example"
             onChange={handleTimeChange}
           >
@@ -185,7 +185,7 @@ export default function MovieBox() {
           <div className=" d-inline text-center">
             <Button
               type="button"
-              className="bg-dark text-light"
+              className="bg-dark m-1 text-light"
               variant="contained"
               onClick={() => handleOnSubmit()}
             >
@@ -195,6 +195,6 @@ export default function MovieBox() {
         </form>
         {error ? <div className="text-danger text-right">{error}</div> : ""}
       </div>
-    </div>
+   
   );
 }

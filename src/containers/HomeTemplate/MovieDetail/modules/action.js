@@ -23,7 +23,7 @@ const actDetailMovieFailed = (error) => {
 
 export const fetchDetailMovie = (id) => {
   return (dispatch) => {
-    dispatch(actDetailMovieRequest);
+    dispatch(actDetailMovieRequest());
     axios({
       url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${id}`,
       method: "GET",

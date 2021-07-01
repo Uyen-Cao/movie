@@ -19,6 +19,7 @@ $bolb-color: #FFF200;
 
 
 .blobs {
+	z-index: 9999;
 	filter: url(#goo);
 
 	height: 300px;
