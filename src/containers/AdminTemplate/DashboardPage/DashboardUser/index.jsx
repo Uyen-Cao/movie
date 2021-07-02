@@ -34,7 +34,7 @@ export default function DasboardUser() {
       setFlag(!flag)
     }).catch((err)=>{
       adminService.notification(err.response.data, "error");
-      console.log({...err});
+      // console.log({...err});
     })
     setOpen(false);
   };
