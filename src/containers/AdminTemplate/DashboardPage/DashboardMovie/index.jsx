@@ -5,7 +5,9 @@ import MovieDetail from "containers/AdminTemplate/component/MovieDetail/MovieDet
 import { ToastContainer, toast } from "react-toastify";
 import PopupMovie from "containers/AdminTemplate/component/PopupMovie/PopupMovie";
 import { Button } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 export default function DashboardMovie() {
+  let history = useHistory();
   const [allMovie, setAllMovie] = React.useState([]);
 
   const [showAddMovie, setShowAddMovie] = React.useState(false);
@@ -44,7 +46,7 @@ export default function DashboardMovie() {
       )}
       <div style={{ maxWidth: "100%" }}>
         <MaterialTable
-          title="DashBoard User"
+          title="DashBoard Movie"
           columns={[
             { title: "Mã Phim", field: "maPhim" },
             { title: "Tên Phim", field: "tenPhim" },
@@ -88,8 +90,14 @@ export default function DashboardMovie() {
               <div>
                 <MTableToolbar {...props} />
                 <div style={{ textAlign: "center", marginBottom: 10 }}>
-                  <Button variant="contained" color="primary" href="">
-                    Switch Dasboard User
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={() => {
+                      history.push("/admin/dasboardUser");
+                    }}
+                  >
+                    Quản lý người dùng
                   </Button>
                 </div>
               </div>

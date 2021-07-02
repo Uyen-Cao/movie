@@ -1,5 +1,5 @@
 import React from "react";
-import MaterialTable from "material-table";
+import MaterialTable, { MTableToolbar } from "material-table";
 import adminService from "../../AdminService/AdminService";
 import PopupUser from "containers/AdminTemplate/component/PopupUser";
 import { ToastContainer, toast } from 'react-toastify';
@@ -11,9 +11,11 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
-
+import { useHistory } from "react-router-dom";
 
 export default function DasboardUser() {
+  let history = useHistory();
+
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
@@ -190,6 +192,24 @@ export default function DasboardUser() {
               }
             },
           ]}
+          components={{
+            Toolbar: (props) => (
+              <div>
+                <MTableToolbar {...props} />
+                <div style={{ textAlign: "center", marginBottom: 10 }}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={() => {
+                      history.push("/admin/dasboardMovie");
+                    }}
+                  >
+                    Quản lý Phim
+                  </Button>
+                </div>
+              </div>
+            ),
+          }}
         />
       </div>
     </>
