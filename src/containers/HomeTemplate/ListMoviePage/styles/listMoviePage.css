@@ -89,3 +89,9 @@
 	align-items: center;
 	flex-direction: row;
 }
+
+.slick-slide{
+	width: 285px !important;
+	text-align: center;
+	margin: 20px 0;
+}

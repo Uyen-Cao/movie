@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import MovieItem from "components/MovieItem";
 import Loader from "./../../../components/Loader";
+import Popup from "components/Popup";
 import { actFetchListMovie } from "./modules/action";
-import { connect } from "react-redux";
 import "./styles/listMoviePage.css";
 
 export default function ListMoviePage() {
   const data = useSelector((state) => state.listMovieReducer.data);
   const loading = useSelector((state) => state.listMovieReducer.loading);
+  const [button, setButton] = useState(false);
+  const [movieTrailer, setMovieTrailer] = useState("")
   const [listMovieShow, setListMovieShow] = useState([]);
   const [currentButtonActive, setCurrentButtonActive] = useState(
     "btn btn-decor from-center"
@@ -25,6 +30,11 @@ export default function ListMoviePage() {
       handleCurrentMovie();
     }
   }, [data]);
+
+  const handleOpenPopUp = (isOpened, movieTrailer) => {
+    setButton(isOpened);
+    setMovieTrailer(movieTrailer)
+  }
 
   const handleCurrentMovie = () => {
     let currentMovies = [];
@@ -52,12 +62,20 @@ export default function ListMoviePage() {
     }
     if (listMovie) {
       return listMovie.map((movie) => {
-        return <MovieItem key={movie.maPhim} movie={movie} />;
+        return <MovieItem handleOpenPopUp={handleOpenPopUp} key={movie.maPhim} movie={movie} />;
       });
     }
   };
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 8,
+    slidesToScroll: 8
+  };
 
   return (
+    
     <div className="container movie-wrapper">
       <div className="button-transfer container text-center">
         <button
@@ -77,8 +95,15 @@ export default function ListMoviePage() {
           SẮP CHIẾU
         </button>
       </div>
-      <div className="row justify-content-between">
+      <Slider {...settings} className="row justify-content-between text-center">
         {renderListMovie(listMovieShow)}
+      </Slider>
+      <div>
+        <Popup
+          movieTrailer={movieTrailer}
+          trigger={button}
+          setTrigger={setButton}
+        />
       </div>
     </div>
   );

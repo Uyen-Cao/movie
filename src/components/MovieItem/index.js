@@ -4,12 +4,12 @@ import PropTypes from "prop-types";
 import "./style/index.css";
 import Popup from "components/Popup";
 
-export default function MovieItem({ movie }) {
+export default function MovieItem({ movie, handleOpenPopUp }) {
   const [button, setButton] = useState(false);
 
   return (
     <>
-      <div className="py-4 box col-lg-3 col-md-4 col-sm-6">
+      <div className="box ">
         <div className="box-img text-center">
           <img className="card-img-top" src={movie.hinhAnh} alt="" />
         </div>
@@ -17,11 +17,12 @@ export default function MovieItem({ movie }) {
           <h4>{movie.tenPhim}</h4>
           <p>IMDB: {movie.danhGia}/10</p>
         </div>
-
         <div className="button">
           <li>
             <button
-              onClick={() => setButton(true)}
+              onClick={() => {
+                handleOpenPopUp(true, movie.trailer)
+              }}
               className="b1 btn btn-danger "
               href="#"
             >
@@ -34,13 +35,6 @@ export default function MovieItem({ movie }) {
             </Link>
           </li>
         </div>
-      </div>
-      <div>
-        <Popup
-          movieTrailer={movie.trailer}
-          trigger={button}
-          setTrigger={setButton}
-        />
       </div>
     </>
   );
