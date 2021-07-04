@@ -5,12 +5,12 @@ import CloseIcon from "@material-ui/icons/Close";
 
 export default function PopupUser(props) {
   const { title, user, handleClosePopup, handleUser } = { ...props };
-  const [userName, setUserName] = React.useState(user && user.taiKhoan);
-  const [name, setName] = React.useState(user && user.hoTen);
-  const [email, setEmail] = React.useState(user && user.email);
-  const [password, setPassword] = React.useState(user && user.matKhau);
-  const [phone, setPhone] = React.useState(user && user.soDt);
-  const [role, setRole] = React.useState(user && user.maLoaiNguoiDung);
+  const [userName, setUserName] = React.useState(user.taiKhoan);
+  const [name, setName] = React.useState(user.hoTen);
+  const [email, setEmail] = React.useState(user.email);
+  const [password, setPassword] = React.useState(user.matKhau);
+  const [phone, setPhone] = React.useState(user.soDt);
+  const [role, setRole] = React.useState(user.maLoaiNguoiDung);
 
   const [roleUser, setroleUser] = React.useState([]);
   React.useEffect(() => {
@@ -25,10 +25,11 @@ export default function PopupUser(props) {
     }
   }, []);
 
+  const [flagShowNoti, setFlagShowNoti] = React.useState(false);
   const [dataUser, setDataUser] = React.useState({});
-  React.useEffect(() => {
-   handleUser(dataUser);
-  }, [dataUser])
+  React.useEffect(()=>{
+    handleUser(dataUser,flagShowNoti)
+  },[dataUser])
 
   const submit = (e)=>{
     e.preventDefault();
@@ -42,6 +43,10 @@ export default function PopupUser(props) {
         "maLoaiNguoiDung": role,
         "hoTen": name
       }
+    });
+    setFlagShowNoti(true);
+    setTimeout(() => {
+     handleClosePopup(); 
     });
   }
   return (
