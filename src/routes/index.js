@@ -2,7 +2,8 @@ import HomePage from "./../containers/HomeTemplate/HomePage";
 import AboutPage from "../containers/HomeTemplate/AboutPage";
 import ListMoviePage from "../containers/HomeTemplate/ListMoviePage";
 import MovieDetailPage from "../containers/HomeTemplate/MovieDetail";
-import BookingPage from "containers/HomeTemplate/BookingPage";
+import DasboardUser from "containers/AdminTemplate/DashboardPage/DashboardUser";
+import DashboardMovie from "containers/AdminTemplate/DashboardPage/DashboardMovie"
 
 const routesHome = [
   {
