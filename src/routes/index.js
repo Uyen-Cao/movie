@@ -28,6 +28,17 @@ const routesHome = [
 
 ];
 
-const routesAdmin = [];
+const routesAdmin = [
+  {
+    exact: true,
+    path: "/admin/dasboardUser",
+    component: DasboardUser,
+  },
+  {
+    exact: true,
+    path: "/admin/dasboardMovie",
+    component: DashboardMovie,
+  },
+];
 
 export { routesHome, routesAdmin };
