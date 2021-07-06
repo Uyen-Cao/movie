@@ -22,15 +22,15 @@ export default function CinemaPlace(props) {
       onClick={() => {
         handleMovieSchedule(props.place);
       }}
-      className={`row border-bottom py-2 align-items-center btn-place ${active ? "btn-active" : ""}`}
+      className={`column border-bottom py-2 align-items-center btn-place ${active ? "btn-active" : ""}`}
     >
-      <div className="col-md-6">
+      <div className="">
         <img
-          className="w-100"
+          className="w-75"
           src="https://mag-cinema.com/image/catalog/News/2020/mammut1.jpg"
         />
       </div>
-      <div className="col-md-6">
+      <div className="">
         <span className="font-weight-bold">{props.place.tenCumRap}</span>
         <p>{props.place.diaChi}</p>
       </div>

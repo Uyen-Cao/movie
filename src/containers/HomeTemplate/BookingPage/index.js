@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
+import { useMediaQuery } from 'react-responsive'
 import SeatSection from "./SeatSection";
 import PaymentSection from "./PaymentSection";
 import Menu from "./MenuSection";
@@ -12,7 +13,7 @@ export default function BookingPage() {
   const user = JSON.parse(localStorage.getItem("UserLogin"));
   const [seatRemove, setSeatRemove] = useState(null)
   const [seatBooking, setSeatBooking] = useState({
-    maLichChieu: history.location.state.cinemaID,
+    maLichChieu: history && history.location.state.cinemaID,
     danhSachVe: [],
     taiKhoanNguoiDung: user && user.taiKhoan,
   });
@@ -32,13 +33,20 @@ export default function BookingPage() {
   const getSeatRemoveByButton = (seat) => {
     setSeatRemove({...seat})
   }
+  const isDesktopOrLaptop = useMediaQuery({
+    query: "(min-device-width: 1224px)",
+  });
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 992px)' })
 
 //   useEffect(() => {
 //       console.log(seatBooking);
 //   }, [seatBooking])
+
   return (
     <div className="booking container p-0 pt-1">
-      <div className="row">
+      {isTabletOrMobile && <div>1234</div>}
+      {isDesktopOrLaptop &&
+        <div className="row">
         <div className="booking-seat pr-0 col-8">
           <Menu />
           <SeatSection seatRemovedByButton={seatRemove} getSeatRemove={getSeatRemove} getSeatSelect={getSeatSelect} />
@@ -47,6 +55,7 @@ export default function BookingPage() {
           <PaymentSection getSeatRemoveByButton={getSeatRemoveByButton} seatSelected={seatBooking} />
         </div>
       </div>
+      }
     </div>
   );
 }

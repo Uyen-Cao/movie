@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { useMediaQuery } from 'react-responsive';
 import MovieItem from "components/MovieItem";
 import Loader from "./../../../components/Loader";
 import Popup from "components/Popup";
@@ -70,8 +71,37 @@ export default function ListMoviePage() {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 8,
-    slidesToScroll: 8
+    rows: 2,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          rows: 2,
+          slidesToShow: 4,
+          slidesToScroll: 4,
+        }
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          dots: true,
+          infinite: true,
+          rows: 1,
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        }
+      }
+
+    ]
   };
 
   return (

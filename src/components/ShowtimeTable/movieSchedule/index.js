@@ -47,14 +47,11 @@ export default function MovieSchedule({ movieSchedule }) {
   return (
     <div className="movie-showtime my-2 container">
       <div className="row">
-        <div className="col-md-3">
+        <div className="col-md-5 col-xl-3">
           <img className="w-100" src={movieSchedule.movieSchedule[0].hinhAnh} />
         </div>
-        <div className="showtime-time d-inline col-md-9">
+        <div className="showtime-time text-center d-inline col-md-7 col-xl-9">
           <div className="movie-info text-left mx-3">
-            <button className="btn btn-warning" >
-              C16
-            </button>
             <span className="font-weight-bold mx-2">
               {movieSchedule.movieSchedule[0].tenPhim} -{" "}
               {movieSchedule.movieSchedule[0].lstLichChieuTheoPhim[0].tenRap}

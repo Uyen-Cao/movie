@@ -22,7 +22,7 @@ export default function MovieDetailPage(props) {
   return (
     <div className="movie-layout">
       <div className="movie-menubar"></div>
-      <div className="movie-carousel">
+      <div style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/background-detail.jpg'})`,}} className="movie-carousel">
         <div className="container movie-details">
           <div className="row wrapper text-center">
             <div className="movie-content col-8 text-left text-light">

@@ -89,9 +89,33 @@
 	align-items: center;
 	flex-direction: row;
 }
-
+	
 .slick-slide{
 	width: 285px !important;
-	text-align: center;
-	margin: 20px 0;
+}
+
+
+
+@media only screen and (min-width: 480px){
+	.slick-slide{
+		width: 270px !important;
+	}
+}
+
+@media only screen and (min-width: 768px){
+	.slick-slide{
+		width: 240px !important;
+	}
+}
+
+@media only screen and (min-width: 992px){
+	.slick-slide{
+		width: 240px !important;
+	}
+}
+
+@media only screen and (min-width: 1200px){
+	.slick-slide{
+		width: 285px !important;
+	}
 }

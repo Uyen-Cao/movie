@@ -63,10 +63,15 @@ export default function LoginPage(props) {
     <div>
       {/* <Loader /> */}
       <div className="login-layout">
+
+        <NavLink className=" btn btn-warning" exact to="/">
+          TRANG CHỦ
+        </NavLink>
+  
         <div className="grid align__item">
-          <NavLink className=" btn close-btn" exact to="/">
+          {/* <NavLink className=" btn close-btn" exact to="/">
             X
-          </NavLink>
+          </NavLink> */}
           <div className="register">
             <img className=" cinema-logo" src={logo} />
             <h2>Log in</h2>

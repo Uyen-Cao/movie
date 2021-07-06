@@ -3,6 +3,7 @@ div .box{
 }
 
 .box{
+    padding: 10px !important;
     position: relative;
     width: 250px;
     perspective: 1000px;
@@ -97,22 +98,19 @@ div .box{
 }
 
 @media only screen and (max-width: 1200px){
+    .box{
+        width: 200px;
+        margin: 0 auto;
+    }
     .box .box-img img{
         width:200px;
         height:300px;
-        border: 2px solid #000;
-        border-radius: 10px;
     }
     .box .button{
         padding: 200px 50px;
     }
     .box .content{
         padding: 70px 20px;
-    }
-}
-@media only screen and (max-width: 992px){
-    .large{
-        display: none;
     }
 }
 
@@ -124,3 +122,4 @@ div .box{
         padding: 70px 30px;
     }
 }
+
