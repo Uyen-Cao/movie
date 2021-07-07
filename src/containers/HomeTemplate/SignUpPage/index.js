@@ -64,8 +64,8 @@ export default function SignupPage() {
     <div className="sign-up">
       <div className="signup-background">
         <div className="signup-box ">
-          <div className="signup-box-wrapper row">
-            <div className="left-box col-7">
+          <div className="signup-box-wrapper m-0 row">
+            <div className="left-box col-sm-12 col-lg-7">
               <h2 className="text-center">Đăng ký</h2>
               <form
                 onSubmit={handleSubmit}
@@ -168,10 +168,12 @@ export default function SignupPage() {
                 <div className="link-signin">
                   <span>Đã có tài khoản? </span>
                   <Link to="/log-in">Đăng nhập</Link>
+                  <br/>
+                  <Link to="/">Trang chủ</Link>
                 </div>
               </form>
             </div>
-            <div className="right-box col-5"></div>
+            <div className="right-box col-lg-5"></div>
           </div>
         </div>
       </div>

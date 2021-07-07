@@ -17,7 +17,7 @@ export default function HomePage() {
       </div>
 
       <div>
-        <div className="showtime-table py-5 ">
+        <div className="showtime-table pb-3">
           <div id="list-movie">
             <ListMoviePage />
           </div>

@@ -14,9 +14,11 @@ export default function CarouselMovie() {
             alt="First slide"
           />
           <div className="text-light  movie-detail-carousel">
-            <button className="btn btn-warning">C19</button>
-            <h1>Avengers: End game</h1>
+            <span className="btn btn-warning">C19</span>
+            <br/>
+            <span className="movie-name">Avengers: End game</span>
             <p>Rating: 8/10</p>
+            <div className="movie-description">
             <p>
               Sau chuyến hành trình độc nhất vô nhị không ngừng mở rộng và phát
               triển vụ trũ điện ảnh Marvel, bộ phim Avengers: Cuộc Chiến Vô Cực
@@ -25,6 +27,7 @@ export default function CarouselMovie() {
               chấp nhận hy sinh tất cả để có thể chống lại kẻ thù hùng mạnh
               Thanos trước tham vọng hủy diệt toàn bộ vũ trụ của hắn.{" "}
             </p>
+            </div>
             <Button variant="contained">Trailer</Button>
             <Button className="mx-3" variant="contained" color="secondary">
               Mua vé ngay
@@ -38,14 +41,17 @@ export default function CarouselMovie() {
             alt="Second slide"
           />
           <div className="text-light  movie-detail-carousel">
-            <button className="btn btn-warning">C19</button>
-            <h1>THE ADDAMS FAMILY</h1>
+            <span className="btn btn-warning">C19</span>
+            <br/>
+            <span className="movie-name">THE ADDAMS FAMILY</span>
             <p>Rating: 8/10</p>
+            <div className="movie-description">
             <p>
               Gia đình Addams là một bộ phim hài đen siêu nhiên hoạt hình máy
               tính năm 2019 do Conrad Vernon và Greg Tiernan đạo diễn và dựa
               trên các nhân vật do Charles Addams tạo ra.{" "}
             </p>
+            </div>
             <Button variant="contained">Trailer</Button>
             <Button className="mx-3" variant="contained" color="secondary">
               Mua vé ngay
@@ -59,9 +65,11 @@ export default function CarouselMovie() {
             alt="Third slide"
           />
           <div className="text-light  movie-detail-carousel">
-            <button className="btn btn-warning">C19</button>
-            <h1>Bond 24: SPECTRE</h1>
+            <span className="btn btn-warning">C19</span>
+            <br/>
+            <span className="movie-name">Bond 24: SPECTRE</span>
             <p>Rating: 8/10</p>
+            <div className="movie-description">
             <p>
               Nội dung phim kể về cuộc chạm mặt đầu tiên của James Bond với tổ
               chức tội phạm quốc tế S.P.E.C.T.R.E. (viết tắt của SPecial
@@ -72,6 +80,7 @@ export default function CarouselMovie() {
               phim 007 có Craig tham gia với một cốt truyện kết nối với các phim
               trước{" "}
             </p>
+            </div>
             <Button variant="contained">Trailer</Button>
             {/* <Button className="mx-3" variant="contained" color="secondary">
               Mua vé ngay

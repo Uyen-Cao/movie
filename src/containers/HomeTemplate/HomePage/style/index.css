@@ -1,3 +1,9 @@
+body{
+    min-width: 600px;
+}
+
+
+
 .carousel{
 position: relative;
 }

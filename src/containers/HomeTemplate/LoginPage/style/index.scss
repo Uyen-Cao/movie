@@ -11,14 +11,14 @@ $base-font-family-fallback: sans-serif;
 }
 
 .login-layout{
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
     background-image: url("./../image/3200427.png");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     padding-top: 100px;
     padding-bottom: 200px;
-    height: 800px;
 }
 
 .align {

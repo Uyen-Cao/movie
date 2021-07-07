@@ -149,7 +149,7 @@ export default function MovieBox() {
       <div className="container py-3 selecting-box">
         <form className="row justify-content-center">
           <select
-            className="form-select film-box col-md-3"
+            className="form-select film-box mt-1 col-sm-5 col-md-3"
             aria-label="Default select example"
             onChange={handleFilmChange}
           >
@@ -157,7 +157,7 @@ export default function MovieBox() {
             {giveFilmOptions()}
           </select>
           <select
-            className="form-select theatre-box  col-md-2"
+            className="form-select theatre-box mt-1 col-sm-5  col-md-2"
             aria-label="Default select example"
             onChange={handleTheaterChange}
           >
@@ -166,7 +166,7 @@ export default function MovieBox() {
           </select>
           <select
             id="dateBox"
-            className="form-select date-box  col-md-2"
+            className="form-select date-box mt-1 col-sm-5 col-md-2"
             aria-label="Default select example"
             onChange={handleDateChange}
           >
@@ -175,7 +175,7 @@ export default function MovieBox() {
           </select>
           <select
             id="timeBox"
-            className="form-select time-box  col-md-2"
+            className="form-select time-box mt-1 col-sm-5 col-md-2"
             aria-label="Default select example"
             onChange={handleTimeChange}
           >

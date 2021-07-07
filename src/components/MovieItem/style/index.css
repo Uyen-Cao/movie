@@ -75,7 +75,7 @@ div .box{
 
 .box .button li{
     list-style: none;
-    padding: 15px;
+    padding: 15px 0;
 }
 
 .box .button li a{
@@ -107,19 +107,14 @@ div .box{
         height:300px;
     }
     .box .button{
-        padding: 200px 50px;
+        padding: 170px 50px;
     }
     .box .content{
-        padding: 70px 20px;
+        padding: 60px 20px;
+    }
+    .box .content p{
+        padding: 10px 0;
     }
 }
 
-@media only screen and (max-width: 768px){
-    .box .button{
-        padding: 200px 30px;
-    }
-    .box .content{
-        padding: 70px 30px;
-    }
-}
 

@@ -60,13 +60,9 @@ export default function LoginPage(props) {
   });
 
   return (
-    <div>
+    <>
       {/* <Loader /> */}
       <div className="login-layout">
-
-        <NavLink className=" btn btn-warning" exact to="/">
-          TRANG CHỦ
-        </NavLink>
   
         <div className="grid align__item">
           {/* <NavLink className=" btn close-btn" exact to="/">
@@ -74,7 +70,7 @@ export default function LoginPage(props) {
           </NavLink> */}
           <div className="register">
             <img className=" cinema-logo" src={logo} />
-            <h2>Log in</h2>
+            <h4 className="font-weight-bold">ĐĂNG NHẬP</h4>
             {error && (
               <span className="text-danger">
                 Tài khoản hoặc mật khẩu không đúng
@@ -116,15 +112,17 @@ export default function LoginPage(props) {
                 className="mx-2 button-signup"
                 variant="outlined"
               >
-                Login
+                Đăng nhập
               </Button>
             </form>
-            <p>
-              Already have an accout? <a href="#">Log in</a>
-            </p>
+            <span>
+              Chưa có tài khoản? <a href="/sign-up">Đăng ký</a>
+            </span>
+            <br/>
+            <NavLink className="text-primary" to="/">Quay lại trang chủ</NavLink>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

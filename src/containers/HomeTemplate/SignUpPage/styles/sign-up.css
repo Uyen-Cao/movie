@@ -16,7 +16,7 @@
 }
 
 .left-box{
-    padding: 50px 40px;
+    padding: 35px 40px;
     padding-bottom: 0;
 
 
@@ -41,6 +41,13 @@
     padding: 10px 0 !important;
 }   
 
-.link-signin{
-    padding-left: 40px;
+@media only screen and (max-width: 992px){
+    .right-box{
+        display: none;
+    }
+    .signup-box-wrapper {
+        width: 450px;
+        height: 570px;
+        left: calc(50% - 225px);
+    }
 }
