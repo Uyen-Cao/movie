@@ -83,20 +83,20 @@ export default function ShowtimeTable() {
       <table className="w-100">
         <thead className="text-center">
           <tr className="row header-table">
-            <th className="col-md-2 title-block">Cụm rạp</th>
-            <th className="col-md-3 title-block">Địa điểm</th>
-            <th className="col-md-7 title-block">Suất chiếu</th>
+            <th className="col-2 col-sm-2 col-md-2 title-block">Cụm rạp</th>
+            <th className="col-4 col-sm-4 col-md-3 title-block">Địa điểm</th>
+            <th className="col-6 col-sm-6 col-md-7 title-block">Suất chiếu</th>
           </tr>
         </thead>
           <tbody className="container">
             <div className="row movie-table-layout">
-            <div className="col-md-2 cinema-row">
+            <div className="col-2 col-sm-2 col-md-2 cinema-row">
               <div className="logo-list">{renderCinemaList()}</div>
             </div>
-            <div className="col-md-3 cinema-list container">
+            <div className="col-4 col-sm-4 col-md-3 cinema-list container">
               <div className="w-100">{renderCinemaPlace()}</div>
             </div>
-            <div className="col-md-7">{renderCinemaSchedule()}</div>
+            <div className="col-6 col-sm-6 col-md-7">{renderCinemaSchedule()}</div>
           </div>
         </tbody>
       </table>

@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
+import { ToastContainer, toast, Zoom, Bounce } from "react-toastify";
 import "./styles/sign-up.css";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
@@ -21,6 +22,7 @@ export default function SignupPage() {
   const classes = useStyles();
   const history = useHistory();
   const dispatch = useDispatch();
+  const error = useSelector((state) => state.registerReducer.error);
   const { handleSubmit, handleChange, values, touched, errors, handleBlur } =
     useFormik({
       initialValues: {
@@ -51,7 +53,7 @@ export default function SignupPage() {
                 email: values.email,
                 soDt: values.soDt,
                 maNhom: "GP07",
-                maLoaiNguoiDung: "khachHang",
+                maLoaiNguoiDung: "KhachHang",
                 hoTen: values.hoTen,
               },
               history
@@ -62,6 +64,7 @@ export default function SignupPage() {
     });
   return (
     <div className="sign-up">
+      <ToastContainer draggable={false} transition={Zoom} autoClose={5000}/>
       <div className="signup-background">
         <div className="signup-box ">
           <div className="signup-box-wrapper m-0 row">

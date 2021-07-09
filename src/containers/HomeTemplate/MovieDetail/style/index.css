@@ -30,18 +30,17 @@ header{
 }
 .movie-details{
     height: 100%;
-    padding-top:190px;
-    padding-bottom:130px;
     background-color: transparent !important;
+    position: relative;
 }
 
-.movie-details .wrapper{
-    height: 100%;
+.outer-wrapper{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-.movie-content, .movie-poster{
-    margin: auto 0;
-}
 .movie-logo{
     font-size: 30px;
 }
@@ -55,7 +54,7 @@ header{
     background-color: #ffd230 !important;
 }
 .movie-poster img{
-    width:80%;
+    width:75%;
 }
 
 .fa-star, .fa-star-half-alt{
@@ -65,7 +64,5 @@ header{
 .showtime-table{
     background-image: linear-gradient(to bottom, #262626,transparent)
 }
-
-/* Butoon */
 
 

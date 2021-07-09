@@ -46,3 +46,21 @@
     font-weight: 600;
 }
 
+@media (max-width: 768px) {
+    .movie-information span{
+        font-size: 20px;
+    }
+}   
+
+@media (max-width: 992px) {
+    .payment-container{
+        min-height: fit-content;
+    }
+    .movie-information{
+        border-bottom: none;
+    }
+    .movie-image img{
+        width: 170px;
+    }
+}   
+  

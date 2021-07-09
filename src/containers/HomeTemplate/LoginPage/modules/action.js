@@ -32,6 +32,21 @@ export const actFetchUserLogin = (user, history) => {
       .then((result) => {
         localStorage.setItem("UserLogin", JSON.stringify(result.data));
         dispatch(actUserLoginSuccess(result.data));
+        if (history.location.state) {
+          history.push({
+            pathname: history.location.state.nextPathname,
+            state: {
+              cinemaID: history.location.state.cinemaID,
+            },
+          });
+        } else {
+          history.push({
+            pathname: "/",
+            state: {
+              from: "/log-in",
+            },
+          });
+        }
       })
       .catch((err) => {
         dispatch(actUserLoginFailed(err));

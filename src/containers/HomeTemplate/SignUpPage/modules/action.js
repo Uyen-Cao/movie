@@ -33,11 +33,16 @@ export const actUserRegister = (user, history) => {
     })
       .then((result) => {
         dispatch(actRegisterSuccess(result.data));
-        toast.success("Đăng ký thành công");
-        history.replace("/");
+        history.replace({
+          pathname: "/",
+          state: {
+            from: "sign/up"
+          }
+        });
       })
       .catch((err) => {
         dispatch(actRegisterFailed(err));
+        toast.error("Đăng ký thất bại, có thể tên tài khoản, hoặc email đã tồn tại!");
       });
   };
 };

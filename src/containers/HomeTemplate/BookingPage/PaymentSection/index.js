@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBookingStatus } from "./modules/action";
 import {useHistory} from "react-router-dom";
+import { useMediaQuery } from 'react-responsive'
+import { ToastContainer, toast, Zoom, Bounce } from "react-toastify";
 import "./paymentSection.css";
 import Loader from "components/Loader";
 
@@ -38,13 +40,36 @@ export default function PaymentSection(props) {
       })
     );
   };
-  const handleBooking = () => {
-    dispatch(fetchBookingStatus(props.seatSelected, history))
+  const renderTotalCost = () => {
+    let totalCost = 0;
+    if(props.seatSelected.danhSachVe.length === 0){
+      return <span className="col-md-6 text-right font-weight-bold text-danger">00.00 VNĐ</span>
+    }
+      props.seatSelected && props.seatSelected.danhSachVe.forEach((seat) => {
+        totalCost += seat.giaVe;
+      });
+      return <span className="col-md-6 text-right font-weight-bold text-danger">{totalCost} VNĐ</span>
   }
+  const handleBooking = () => {
+    if(props.seatSelected.danhSachVe.length === 0){
+      bookingSeatNot();
+    } else{
+    dispatch(fetchBookingStatus(props.seatSelected, history))
+    }
+  }
+  const isDesktop = useMediaQuery({ minWidth: 992 })
+  const isTablet = useMediaQuery({ maxWidth: 991 })
+
+  const bookingSeatNot = () => {
+    toast.error("Vui lòng chọn ghế!")
+  }
+
   return (
     <div className="payment-outer">
+      <ToastContainer draggable={false} transition={Zoom} autoClose={5000}/>
       <div className="payment-container text-center">
-        <div className="payment-wrapper">
+        {isDesktop &&(
+          <div className="payment-wrapper">
           <div className="payment-movie">
             <div className="movie-image">
               {loading ? <Loader/> : <img src={movieData && movieData.thongTinPhim.hinhAnh} />}
@@ -53,6 +78,7 @@ export default function PaymentSection(props) {
               <span>{movieData && movieData.thongTinPhim.tenPhim}</span>
             </div>
           </div>
+          <div>
           <div className="payment-customer">
             <div className="row py-2 d-flex align-items-center justify-content-around">
               <span className="col-md-5">Email:</span>
@@ -66,11 +92,44 @@ export default function PaymentSection(props) {
           <div className="payment-details">
             <div className="payment-selection">{renderSeatSelected()}</div>
             <div className="payment-total row">
-              <div className="col-md-8"></div>
-              <span className="col-md-4">24.00$</span>
+              <div className="col-md-6"></div>
+              {renderTotalCost()}
             </div>
           </div>
+          </div>
         </div>
+        )}
+        {isTablet && (
+          <div className="payment-wrapper row align-items-center">
+          <div className="payment-movie col-5 col-sm-5">
+            <div className="movie-image">
+              {loading ? <Loader/> : <img src={movieData && movieData.thongTinPhim.hinhAnh} />}
+            </div>
+            <div className="movie-information">
+              <span>{movieData && movieData.thongTinPhim.tenPhim}</span>
+            </div>
+          </div>
+          <div className="col-7 col-sm-7">
+          <div className="payment-customer">
+            <div className="row py-2 d-flex ">
+              <span className="pr-2 font-weight-bold">Email:</span>
+              <span>{user && user.email}</span>
+            </div>
+            <div className="row py-2 d-flex">
+              <span className="pr-2 font-weight-bold">Phone:</span>
+              <span >{user && user.soDT}</span>
+            </div>
+          </div>
+          <div className="payment-details">
+            <div className="payment-selection">{renderSeatSelected()}</div>
+            <div className="payment-total row">
+              <div className="col-8 col-sm-8"></div>
+              {renderTotalCost()}
+            </div>
+          </div>
+          </div>
+        </div>
+        )}
       </div>
       <div className="payment-notice text-center">
         <span>

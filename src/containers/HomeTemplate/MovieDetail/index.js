@@ -24,8 +24,8 @@ export default function MovieDetailPage(props) {
       <div className="movie-menubar"></div>
       <div style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/background-detail.jpg'})`,}} className="movie-carousel">
         <div className="container movie-details">
-          <div className="row wrapper text-center">
-            <div className="movie-content col-8 text-left text-light">
+          <div className="row outer-wrapper text-center">
+            <div className="movie-content col-6 col-sm-6 col-md-6 col-xl-8 text-left text-light">
               <Button className="button-limitage" variant="contained">
                 C18
               </Button>
@@ -60,7 +60,7 @@ export default function MovieDetailPage(props) {
                 </Button>
               </div>
             </div>
-            <div className="col-4 movie-poster">
+            <div className="col-6 col-sm-6 col-md-6 col-xl-4 movie-poster">
               {loading ? <Loader /> : <img src={data && data.hinhAnh} />}
             </div>
           </div>

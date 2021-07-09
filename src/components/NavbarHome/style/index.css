@@ -83,7 +83,7 @@ header {
 .right-column {
   justify-content: flex-end;
 }
-.right-column a .avatar-user {
+.right-column span .avatar-user {
   width: 45px;
 }
 

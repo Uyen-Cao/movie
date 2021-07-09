@@ -2,6 +2,7 @@ import { fetchMovieSchedule } from "components/MovieBox/modules/action";
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useHistory} from "react-router";
+import "./popupMovie.css"
 
 
 export default function PopupMovie(props) {
@@ -121,14 +122,14 @@ export default function PopupMovie(props) {
 
 
   return props.trigger ? (
-    <div className="popup text-center">
+    <div className="popup popup-movie text-center">
       <div className="popup-inner">
         <div>
           <h3>Lịch chiếu phim</h3>
           <h4>{data && data.tenPhim}</h4>
         </div>
-        <div className="row">
-          <div className="col-md-6 ">
+        <div className="row image-section">
+          <div className="col-md-6 movie-img ">
             <img src={data && data.hinhAnh} />
           </div>
           <div className="col-md-6">

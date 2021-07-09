@@ -52,7 +52,7 @@ export default function PopupUser(props) {
   return (
     <>
       <div className="popupUser">
-        <div className="container">
+        <div className="custom-container">
           <div className="title">{title}</div>
           <CloseIcon
             className="closeIcon"

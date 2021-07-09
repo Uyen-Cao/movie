@@ -26,3 +26,10 @@
     border-radius: 50%/100px 100px 0 0;
     margin: 20px 50px;
 }
+
+
+@media (max-width: 768px) {
+    .seat-button .fa-stop{
+        font-size: 25px;
+    }
+}

@@ -1,8 +1,7 @@
 body{
     min-width: 600px;
+    box-sizing: border-box;
 }
-
-
 
 .carousel{
 position: relative;

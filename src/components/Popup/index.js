@@ -4,8 +4,8 @@ export default function Popup(props) {
   return props.trigger ? (
     <div className="popup text-center">
       <div className="popup-inner">
-        <iframe width="700" height="400" src={props.movieTrailer}></iframe>
-
+        <iframe src={props.movieTrailer}></iframe>
+        <br/>
         <button
           onClick={() => {
             props.setTrigger(false);

@@ -25,7 +25,7 @@ const userReducer = (state = initialState, action) => {
       state.loading = false;
       state.data = null;
       state.error = action.payload;
-      toast.error("Đăng nhập thất bại");
+      toast.error("Đăng nhập thất bại, có thể tài khoản hoặc mật khẩu không đúng");
       return { ...state };
     }
 

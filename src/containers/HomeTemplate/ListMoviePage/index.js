@@ -69,7 +69,7 @@ export default function ListMoviePage() {
   };
   const settings = {
     dots: true,
-    infinite: false,
+    infinite: true,
     speed: 500,
     rows: 2,
     slidesToShow: 4,
@@ -106,8 +106,8 @@ export default function ListMoviePage() {
 
   return (
     
-    <div className="container movie-wrapper">
-      <div className="button-transfer container text-center">
+    <div className="container py-3 movie-wrapper">
+      <div className="button-transfer py-2 container text-center">
         <button
           onClick={() => {
             handleCurrentMovie();

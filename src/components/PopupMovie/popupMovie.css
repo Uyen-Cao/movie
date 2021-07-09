@@ -1,0 +1,7 @@
+.popup-movie .popup-inner{
+    min-width: 500px;
+}
+
+.popup .popup-inner .image-section .movie-img img{
+    width: 200px;
+}
