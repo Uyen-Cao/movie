@@ -90,6 +90,8 @@ export default function LoginPage(props) {
             </span>
             <br/>
             <NavLink className="text-primary" to="/">Quay lại trang chủ</NavLink>
+            <br/>
+            <NavLink className="text-primary" to="/admin/sign-in">Đăng nhập với tư cách Admin</NavLink>
           </div>
         </div>
       </div>

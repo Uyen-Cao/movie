@@ -4,6 +4,7 @@ import ListMoviePage from "../containers/HomeTemplate/ListMoviePage";
 import MovieDetailPage from "../containers/HomeTemplate/MovieDetail";
 import DasboardUser from "containers/AdminTemplate/DashboardPage/DashboardUser";
 import DashboardMovie from "containers/AdminTemplate/DashboardPage/DashboardMovie"
+import LogIn from "containers/AdminTemplate/component/LogIn/LogIn";
 
 const routesHome = [
   {
@@ -31,14 +32,19 @@ const routesHome = [
 
 const routesAdmin = [
   {
-    exact: true,
+    exact: false,
     path: "/admin/dasboardUser",
     component: DasboardUser,
   },
   {
-    exact: true,
+    exact: false,
     path: "/admin/dasboardMovie",
     component: DashboardMovie,
+  },
+  {
+    exact: false,
+    path: "/admin/sign-in",
+    component: LogIn,
   },
 ];
 

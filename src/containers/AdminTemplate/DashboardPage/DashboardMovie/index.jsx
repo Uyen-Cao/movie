@@ -9,9 +9,13 @@ import { useHistory } from "react-router-dom";
 export default function DashboardMovie() {
   let history = useHistory();
   const [allMovie, setAllMovie] = React.useState([]);
-
   const [showAddMovie, setShowAddMovie] = React.useState(false);
   const [loadAgain, setloadAgain] = React.useState(true);
+  const admin = JSON.parse(localStorage.getItem("AdminLogin"))
+  React.useEffect(() => {
+    checkAuthorization()
+  }, []);
+
   React.useEffect(() => {
     try {
       const callApi = async () => {
@@ -23,6 +27,11 @@ export default function DashboardMovie() {
       console.log(err);
     }
   }, [loadAgain]);
+  const checkAuthorization = () => {
+    if(admin === null || admin.maLoaiNguoiDung === "KhachHang"){
+      history.push("/")
+    }
+  }
   return (
     <>
       <ToastContainer

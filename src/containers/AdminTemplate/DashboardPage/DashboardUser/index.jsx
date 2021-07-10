@@ -20,6 +20,17 @@ export default function DasboardUser() {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
   const [userDelete, setUserDelete] = React.useState();
+  const admin = JSON.parse(localStorage.getItem("AdminLogin"))
+
+  React.useEffect(() => {
+    checkAuthorization()
+  }, []);
+
+  const checkAuthorization = () => {
+    if(admin === null || admin.maLoaiNguoiDung === "KhachHang"){
+      history.push("/")
+    }
+  }
   
   const handleClickOpen = () => {
     setOpen(true);

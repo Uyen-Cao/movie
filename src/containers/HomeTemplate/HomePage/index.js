@@ -11,7 +11,6 @@ export default function HomePage() {
   const history = useHistory();
 
   useEffect(() => {
-    console.log(history);
     if(history.location.state === null || history.location.state === undefined){
       return;
     }

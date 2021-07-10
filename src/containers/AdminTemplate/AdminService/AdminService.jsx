@@ -115,6 +115,18 @@ class AdminService {
       )
     );
   };
+
+  //Login
+  loginAdmin = (data) => {
+    return axios(
+      config(
+        "post",
+        `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap`,
+        "",
+        data
+      )
+    );
+  }
 }
 
 const adminService = new AdminService();
